@@ -13,7 +13,8 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(name: "NesSndEmuCpp"),
-        .target(name: "NesSndEmuSwift"),
+        .target(name: "NesSndEmuCppWrapper", dependencies: ["NesSndEmuCpp"]),
+        .target(name: "NesSndEmuSwift", dependencies: ["NesSndEmuCppWrapper"]),
     ],
     cLanguageStandard: .c11,
     cxxLanguageStandard: .cxx98
