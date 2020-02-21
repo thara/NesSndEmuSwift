@@ -54,4 +54,8 @@ extension NesApu {
     public func endFrame(cpuTime: Int) {
         nes_apu_end_frame(rawPointer, cpuTime)
     }
+
+    public func reset(palTiming: Bool = false, initialDAC: Int32 = 0) {
+        nes_apu_reset(rawPointer, palTiming ? 1 : 0, initialDAC)
+    }
 }

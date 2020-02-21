@@ -32,3 +32,7 @@ int nes_apu_read_status(void* obj, long cpu_time) {
 void nes_apu_end_frame(void* obj, long cpu_time) {
     ptr<Nes_Apu>(obj)->end_frame(cpu_time);
 }
+
+void nes_apu_reset(void* obj, int pal_timing, int initial_dmc_dac) {
+    ptr<Nes_Apu>(obj)->reset(0 < pal_timing, initial_dmc_dac);
+}

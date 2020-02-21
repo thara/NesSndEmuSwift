@@ -12,6 +12,7 @@ void nes_apu_dmc_reader(void* obj, int (*callback)(void* user_data, unsigned), v
 void nes_apu_write_register(void* obj, long cpu_time, unsigned cpu_addr, int data);
 int nes_apu_read_status(void* obj, long cpu_time);
 void nes_apu_end_frame(void* obj, long cpu_time);
+void nes_apu_reset(void* obj, int pal_timing, int initial_dmc_dac);
 
 #ifdef __cplusplus
 }
