@@ -8,7 +8,13 @@ http://www.slack.net/~ant/libs/audio.html
 
 ## Installation
 
-TODO
+Swift Package Manager
+
+```
+dependencies: [
+    .package(url: "https://github.com/thara/NesSndEmuSwift.git", from: "0.1.0")
+]
+```
 
 ## Author
 
