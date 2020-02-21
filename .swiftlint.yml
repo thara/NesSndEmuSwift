@@ -1,0 +1,7 @@
+disabled_rules:
+  - identifier_name
+  - file_header
+
+included:
+  - Sources/NesSndEmuSwift
+  - Sources/NesSndEmuSwiftDemo
