@@ -26,17 +26,16 @@ public class NesApu {
 
 extension NesApu {
 
-    // func output(buffer: BlipBuffer) {
-    //     nes_apu_output(rawPointer, buffer.rawPointer)
-    // }
+    func output(buffer: BlipBuffer) {
+        nes_apu_output(rawPointer, buffer.rawPointer)
+    }
 
     func dmcReader(_ callback: @escaping DMCCallback) {
         callbackHolder.dmcCallback = callback
 
         let userData = Unmanaged<CallbackHolder>.passRetained(self.callbackHolder).toOpaque()
         nes_apu_dmc_reader(
-            rawPointer,
-            { (userData: UnsafeMutableRawPointer?, address: UInt32) -> Int32 in
+            rawPointer, { (userData: UnsafeMutableRawPointer?, address: UInt32) -> Int32 in
                 guard let pointer = userData else { return Int32(address) }
 
                 let holder = Unmanaged<CallbackHolder>.fromOpaque(pointer).takeUnretainedValue()

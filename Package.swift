@@ -8,13 +8,13 @@ let package = Package(
     products: [
         .library(
             name: "NesSndEmuSwift",
-            targets: ["NesSndEmuSwift"]),
+            targets: ["NesSndEmuSwift"])
     ],
     dependencies: [],
     targets: [
         .target(name: "NesSndEmuCpp"),
         .target(name: "NesSndEmuCppWrapper", dependencies: ["NesSndEmuCpp"]),
-        .target(name: "NesSndEmuSwift", dependencies: ["NesSndEmuCppWrapper"]),
+        .target(name: "NesSndEmuSwift", dependencies: ["NesSndEmuCppWrapper"])
     ],
     cLanguageStandard: .c11,
     cxxLanguageStandard: .cxx98
