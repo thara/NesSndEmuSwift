@@ -26,11 +26,11 @@ public class NesApu {
 
 extension NesApu {
 
-    func output(buffer: BlipBuffer) {
+    public func output(buffer: BlipBuffer) {
         nes_apu_output(rawPointer, buffer.rawPointer)
     }
 
-    func dmcReader(_ callback: @escaping DMCCallback) {
+    public func dmcReader(_ callback: @escaping DMCCallback) {
         callbackHolder.dmcCallback = callback
 
         let userData = Unmanaged<CallbackHolder>.passRetained(self.callbackHolder).toOpaque()
@@ -43,15 +43,15 @@ extension NesApu {
             }, userData)
     }
 
-    func writeRegister(cpuTime: Int, cpuAddress: UInt32, data: Int32) {
+    public func writeRegister(cpuTime: Int, cpuAddress: UInt32, data: Int32) {
         nes_apu_write_register(rawPointer, cpuTime, cpuAddress, data)
     }
 
-    func readStatus(cpuTime: Int) -> Int32 {
+    public func readStatus(cpuTime: Int) -> Int32 {
         return nes_apu_read_status(rawPointer, cpuTime)
     }
 
-    func endFrame(cpuTime: Int) {
+    public func endFrame(cpuTime: Int) {
         nes_apu_end_frame(rawPointer, cpuTime)
     }
 }

@@ -10,11 +10,11 @@ let package = Package(
             name: "NesSndEmuSwift",
             targets: ["NesSndEmuSwift"])
     ],
-    dependencies: [],
     targets: [
         .target(name: "NesSndEmuCpp"),
         .target(name: "NesSndEmuCppWrapper", dependencies: ["NesSndEmuCpp"]),
-        .target(name: "NesSndEmuSwift", dependencies: ["NesSndEmuCppWrapper"])
+        .target(name: "NesSndEmuSwift", dependencies: ["NesSndEmuCppWrapper"]),
+        .target(name: "NesSndEmuSwiftDemo", dependencies: ["NesSndEmuSwift"])
     ],
     cLanguageStandard: .c11,
     cxxLanguageStandard: .cxx98
